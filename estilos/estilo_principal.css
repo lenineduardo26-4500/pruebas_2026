@@ -1,0 +1,363 @@
+:root {
+    --bg-main: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-surface-alt: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --border-color: #e2e8f0;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --accent-glow: rgba(37, 99, 235, 0.4);
+}
+
+body.dark-mode {
+    --bg-main: #090d16;
+    --bg-surface: #131c2e;
+    --bg-surface-alt: #1a2338;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border-color: #27354f;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    --accent-glow: rgba(59, 130, 246, 0.5);
+}
+
+body.dark-mode .card,
+body.dark-mode .top-header-bar,
+body.dark-mode table,
+body.dark-mode .table-responsive,
+body.dark-mode .form-control,
+body.dark-mode .panel-box {
+    background-color: var(--bg-surface) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode th {
+    background-color: #1e293b !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+body.dark-mode td {
+    background-color: var(--bg-surface) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+body.dark-mode tr:nth-child(even) td {
+    background-color: var(--bg-surface-alt) !important;
+}
+
+body.dark-mode tr:hover td {
+    background-color: #22304a !important;
+}
+
+body.dark-mode input, 
+body.dark-mode select, 
+body.dark-mode textarea {
+    background-color: var(--bg-surface-alt) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+html, body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    display: flex;
+    width: 100%;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 16px 20px 24px 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    align-self: stretch;
+    background-color: var(--bg-main);
+    transition: background-color 0.25s ease;
+}
+
+.top-header-bar {
+    background-color: var(--bg-surface);
+    padding: 10px 18px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.top-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-theme-switch {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-surface-alt);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-theme-switch:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.user-profile-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px;
+    border-radius: 50rem;
+    background-color: var(--bg-surface-alt);
+    border: 1px solid var(--border-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.role-badge {
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.role-badge.badge-admin {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.role-badge.badge-coord {
+    background-color: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+    border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+.card {
+    background: var(--bg-surface);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.card h2, .card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text-primary);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-secondary);
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    padding: 9px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.btn-guardar, .btn-next, .btn-finish {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+}
+
+.btn-guardar:hover, .btn-next:hover, .btn-finish:hover {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 0 15px var(--accent-glow);
+    transform: translateY(-1px);
+}
+
+.btn-modificar {
+    background-color: #f59e0b;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s;
+}
+
+.btn-modificar:hover {
+    background-color: #d97706;
+}
+
+.btn-inactivar, .btn-archivar {
+    background-color: #d97706;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.btn-inactivar:hover, .btn-archivar:hover {
+    background-color: #b45309;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-top: 15px;
+    background-color: var(--bg-surface);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    margin-bottom: 0;
+}
+
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+th {
+    background-color: #f1f5f9;
+    color: var(--text-primary);
+    font-weight: 700;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+tr:nth-child(even) {
+    background-color: var(--bg-surface-alt);
+}
+
+tr:hover {
+    background-color: rgba(37, 99, 235, 0.04);
+}
+
+.tool-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-surface-alt);
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.tool-action-btn.btn-refresh-cache {
+    background: rgba(37, 99, 235, 0.12);
+    color: #2563eb;
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+.tool-action-btn.btn-refresh-cache:hover {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    html, body {
+        flex-direction: column;
+    }
+    .main-content {
+        padding: 12px;
+    }
+}
